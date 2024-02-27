@@ -17,10 +17,10 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/oracle4me/crud_laravel.git
+$ git clone https://github.com/Oracle4me/crud_laravel.git
 
 # Active Server
-$ Active Xammp Mysql and Apache Server
+$ Active Xampp Mysql and Apache Server
 
 # Run the app
 $ php artisan serve
