@@ -15,7 +15,7 @@ A CRUD project in Laravel typically involves creating, reading, updating, and de
 
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
-bash
+```bash
 # Clone this repository
 $ git clone https://github.com/oracle4me/crud_laravel.git
 
@@ -24,7 +24,7 @@ $ Active Xammp Mysql and Apache Server
 
 # Run the app
 $ php artisan serve
-
+```
 
 ## Credits
 
@@ -32,10 +32,9 @@ This crud uses the following open source packages:
 
 - [Laravel](https://laravel.com/)
 - [Php](https://www.php.net/)
-- [Node.js](https://nodejs.org/)
 - [Composer](https://getcomposer.org/)
 - [Xampp](https://www.apachefriends.org/)
-- [Git Bash](https://git-scm.com/downloads)
+
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
