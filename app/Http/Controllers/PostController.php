@@ -32,7 +32,7 @@ class PostController extends Controller
         Post::create($request->all());
 
         return redirect()->route('posts.index')
-            ->with('succes','Post create successfully.');
+            ->with('success','Post create successfully.');
     }
 
     /**
@@ -45,31 +45,36 @@ class PostController extends Controller
         return view('posts.show',compact('post'));
     }
 
-
     /**
-     * Update the specified resource in storage.
-     * 
-     * @param \Illmuniate\Http\Request $request
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'title' => 'required|max:225',
-            'description' => 'required',
-        ]);
-
+    public function edit($id) {
         $post = Post::find($id);
-        $post->update($request->all());
-        if (!$post) {
-            return redirect()->route('posts.index')->with('error', 'Post not found');
-        }
-    
-
-        return redirect()->route('posts.index')
-            ->with('Success Update', "Post already on update");
+        return view('posts.edit', compact('post'));
     }
+
+/**
+ * Update the specified resource in storage.
+ * 
+ * @param \Illuminate\Http\Request $request
+ * @param int $id
+ * @return \Illuminate\Http\Response
+ */
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'title' => 'required|max:225',
+        'description' => 'required',
+    ]);
+
+    $post = Post::find($id);
+    if (!$post) {
+        return redirect()->route('posts.index')->with('error', 'Post not found');
+    }
+    $post->update($request->all());
+    return redirect()->route('posts.index')->with('success', 'Post has been updated successfully');
+}
 
     /**
      * Remove the specified resource from storage.
@@ -83,7 +88,6 @@ class PostController extends Controller
         }
     
         $post->delete();
-    
         return redirect()->route('posts.index')->with("success", "Post deleted successfully");
     }
     
@@ -91,14 +95,5 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id) {
-        $post = Post::find($id);
-
-        return view('posts.edit', compact('post'));
-    }
 
 }

@@ -15,20 +15,15 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
         <div class="container-fluid">
             <a class="navbar-brand h1" href={{ route('posts.index') }}>CRUDPosts</a>
-            <div class="justify-end ">
-                <div class="col ">
-                    <a class="btn btn-sm btn-success" href={{ route('posts.create') }}>Add Post</a>
-                </div>
-            </div>
     </nav>
 
     <div class="container h-100 mt-5">
         <div class="row h-100 justify-content-center align-items-center">
             <div class="col-10 col-md-8 col-lg-6">
                 <h3>Update Post</h3>
-                <form action="{{ route('posts.update', $post->id) }}" method="post">
+                <form action="{{ route('posts.update',$post->id) }}" method="post">
                     @csrf
-                    @method('PUT')
+                    @method('put')
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" class="form-control" id="title" name="title"
@@ -36,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <label for="body">Body</label>
-                        <textarea class="form-control" id="body" name="body" rows="3" required>{{ $post->description }}</textarea>
+                        <textarea class="form-control" id="description" name="description" rows="3" required>{{ $post->description }}</textarea>
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">Update Post</button>
